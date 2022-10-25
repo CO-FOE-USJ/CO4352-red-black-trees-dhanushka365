@@ -3,20 +3,20 @@ import sys
 # Node creation
 class Node:
     def __init__(self, item):
-        self.item = item
-        self.parent = None
-        self.left = None
-        self.right = None
-        self.color = 1
+        self.item = item #data in the node
+        self.parent = None#parent node
+        self.left = None#left child
+        self.right = None#right child
+        self.color = 1#1=RED
 
 
 class RedBlackTree:
-    def __init__(self):
+    def __init__(self):#construtor to store node details
         self.TNULL = Node(0)
-        self.TNULL.color = 0
+        self.TNULL.color = 0#black
         self.TNULL.left = None
         self.TNULL.right = None
-        self.root = self.TNULL
+        self.root = self.TNULL#root node
 
     # Preorder
     def pre_order_helper(self, node):
@@ -41,7 +41,7 @@ class RedBlackTree:
 
     # Search the tree
     def search_tree_helper(self, node, key):
-        if node == self.TNULL or key == node.item:
+        if node == self.TNULL or key == node.item:#if the key(data)of the node is found,the node is returened
             return node
 
         if key < node.item:
@@ -200,7 +200,6 @@ class RedBlackTree:
                     indent += "|    "
 
             s_color = "R" if node.color == 1 else "B"
-            # print(str(node.item) + "(" + s_color + ")")
             print(s_color + str(node.item))
             if node.left == self.TNULL:
                 self.__print_helper(node.right, indent, True)
@@ -301,16 +300,16 @@ class RedBlackTree:
         x.parent = y
 
     def insert(self, key):
-        node = Node(key)
+        node = Node(key)#set the key value to node variable
         node.parent = None
-        node.item = key
+        node.item = key#inserting the value(key) to the node
         node.left = self.TNULL
         node.right = self.TNULL
         node.color = 1
 
         y = None
         x = self.root
-
+    #if there is one node this will execute
         while x != self.TNULL:
             y = x
             if node.item < x.item:
@@ -318,7 +317,7 @@ class RedBlackTree:
             else:
                 x = x.right
 
-        node.parent = y
+        node.parent = y# setting the ne parent
         if y == None:
             self.root = node
         elif node.item < y.item:
@@ -345,9 +344,10 @@ class RedBlackTree:
         self.__print_helper(self.root, "", True)
 
 
+
 if __name__ == "__main__":
 
-    bst = RedBlackTree()
+    bst = RedBlackTree()#object creation
     
     initial_inputs = [int(x) for x in input().split()]
     for value in initial_inputs:
@@ -355,30 +355,28 @@ if __name__ == "__main__":
     #print("\n")   
     bst.print_tree()
     #print("\n")
-    # take the number of commands
+    # take the number of opeerations
     num_commands = int(input())
 
 if num_commands >0:
-
     for i in range(num_commands):
         temp_input = input().split()
-    
         #check the operation
         if temp_input[0] == "Delete":
             bst.delete_node(int(temp_input[1]))
             bst.print_tree()
             #print("\n")
-
         elif temp_input[0] == "Search":
             print(bst.searchTree(int(temp_input[1])))
             #print("\n")
-
         elif temp_input[0] == "Min":
             print(bst.minimum(bst.root).item)
-            #print("\n")
-            
+            #print("\n")    
         elif temp_input[0] == "Max":
             print(bst.maximum(bst.root).item)
-
         else:
             print("\n")
+
+else:
+    print("Please enter a valid value for command ")
+print("\n")    
