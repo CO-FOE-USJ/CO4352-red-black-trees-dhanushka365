@@ -24,8 +24,8 @@
       "name": "Test_2_Python",
       "setup": "pip3 install -r requirements.txt",
       "run": "python3 main.py",
-      "input": "5 10 15 20 25 30 35 40 50\r\n1\r\nMin",
-      "output": "5\r\n\r\n",
+      "input": "5 10 15 20 25 30 35 40 50\r\n2\r\nMin\r\nMax",
+      "output": "5\r\n\r\n50\r\n",
       "comparison": "included",
       "timeout": 10,
       "points": 10
