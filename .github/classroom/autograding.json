@@ -25,7 +25,7 @@
       "setup": "pip3 install -r requirements.txt",
       "run": "python3 main.py",
       "input": "5 10 15 20 25 30 35 40 50\r\n2\r\nMin\r\nMax",
-      "output": "5\r\n\r\n50\r\n",
+      "output": "B20\r\n├──R30\r\n│  ├──B40\r\n│  │  ├──R50\r\n│  │  └──R35\r\n│  └──B25\r\n└──R10\r\n   ├──B15\r\n   └──B5\r\n\r\n5\r\n\r\n50\r\n",
       "comparison": "included",
       "timeout": 10,
       "points": 10
