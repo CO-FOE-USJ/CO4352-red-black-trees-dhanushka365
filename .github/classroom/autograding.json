@@ -29,6 +29,16 @@
       "comparison": "included",
       "timeout": 10,
       "points": 10
+    },
+    {
+      "name": "Test_3_Python",
+      "setup": "pip3 install -r requirements.txt",
+      "run": "python3 main.py",
+      "input": "5 10 15 20 25 30 35 40 50\r\n2\r\nDelete 35\r\nDelete 50",
+      "output": "B20\r\n├──R30\r\n│  ├──B40\r\n│  │  ├──R50\r\n│  │  └──R35\r\n│  └──B25\r\n└──R10\r\n   ├──B15\r\n   └──B5\r\n\r\nB20\r\n├──R30\r\n│  ├──B40\r\n│  │  └──R50\r\n│  └──B25\r\n└──R10\r\n   ├──B15\r\n   └──B5\r\n\r\nB20\r\n├──R30\r\n│  ├──B40\r\n│  └──B25\r\n└──R10\r\n   ├──B15\r\n   └──B5\r\n",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
     }
   ]
 }
