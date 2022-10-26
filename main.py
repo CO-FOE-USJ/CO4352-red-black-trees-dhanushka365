@@ -352,7 +352,7 @@ if __name__ == "__main__":
     initial_inputs = [int(x) for x in input().split()]
     for value in initial_inputs:
         bst.insert(value)
-    #print("\n")   
+    print()   
     bst.print_tree()
     #print("\n")
     # take the number of opeerations
@@ -364,15 +364,19 @@ if num_commands >0:
         #check the operation
         if temp_input[0] == "Delete":
             bst.delete_node(int(temp_input[1]))
+            print()
             bst.print_tree()
             #print("\n")
         elif temp_input[0] == "Search":
+            print()
             print(bst.searchTree(int(temp_input[1])))
             #print("\n")
         elif temp_input[0] == "Min":
+            print()
             print(bst.minimum(bst.root).item)
             #print("\n")    
         elif temp_input[0] == "Max":
+            print()
             print(bst.maximum(bst.root).item)
         else:
             print("\n")
