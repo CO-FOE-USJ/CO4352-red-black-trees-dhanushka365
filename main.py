@@ -187,26 +187,30 @@ class RedBlackTree:
         self.root.color = 0
 
     # Printing the tree
-    def __print_helper(self, node, indent, last):
-        if node != self.TNULL:
-            sys.stdout.write(indent)
-
-            if node.item != self.root.item:
-                if last:
-                    sys.stdout.write("└──")
-                    indent += "     "
+#############################################################################
+    def __print_helper( self , node , indent , last ) :
+        if node != self.TNULL :
+            print(indent, end='')
+            if last :
+                if node==self.root:
+                    print("", end='')
                 else:
-                    sys.stdout.write("├──")
-                    indent += "|    "
-
+                    print("└──",end= '')
+                    indent += "   "
+            else :
+                if node.parent.left == self.TNULL:
+                    print("└──",end= '')
+                    indent += "│  "   
+                else:
+                    print("├──",end='')
+                    indent += "│  "
+                
             s_color = "R" if node.color == 1 else "B"
-            print(s_color + str(node.item))
-            if node.left == self.TNULL:
-                self.__print_helper(node.right, indent, True)
-            else:
-                self.__print_helper(node.right, indent, False)
-            self.__print_helper(node.left, indent, True)
+            print(s_color + str ( node.item ) )
+            self.__print_helper( node.right , indent , False )
+            self.__print_helper( node.left , indent , True )
 
+##################################################################################
     def preorder(self):
         self.pre_order_helper(self.root)
 
